@@ -16,7 +16,7 @@ module.exports = {
     },
     output : {
         path      : path.resolve(__dirname, './dist'),
-        publicPath: '/', //   /js/app.js //интернет путь к нашей сборкое, возможен вариант с http:\\... в конце слеш обязателен
+        publicPath: '/react-sorting-images-rate-relative-position/', //   /js/app.js //интернет путь к нашей сборкое, возможен вариант с http:\\... в конце слеш обязателен
         filename  : "[name].js",
         //library: "[name]" //модуль, который мы собираем поместится в эту переменную, чтобы можно было использовать его где-то еще
         //chunks: ["./home", "./about"] //только из этих модулей выносить общую часть
