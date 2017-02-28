@@ -5,4 +5,4 @@
 
 
 #### DEMO
-https://bondarenkoalex.github.io/
+https://bondarenkoalex.github.io/react-sorting-images-rate-relative-position/
