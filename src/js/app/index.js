@@ -12,7 +12,7 @@ class App extends Component {
         super(props, context);
         autoBind(this);
         this.instanceList = new Map();
-        this.isClick = false;
+        this.isClick      = false;
 
         this.state = {
             items: this.sort(items),
@@ -27,6 +27,7 @@ class App extends Component {
     onLeftClick(e, item) {
         if (this.isClick) return;
         this.isClick = true;
+        this.updatePositionElements();
         let itemsAfterUpdateItem = this.getItemsAfterUpdateRating(item, +1);
         this.click(itemsAfterUpdateItem);
     }
@@ -34,6 +35,7 @@ class App extends Component {
     onRightClick(e, item) {
         if (this.isClick) return;
         this.isClick = true;
+        this.updatePositionElements();
         let itemsAfterUpdateItem = this.getItemsAfterUpdateRating(item, -1);
         this.click(itemsAfterUpdateItem);
     }
@@ -91,7 +93,7 @@ class App extends Component {
                     }, ()=> {
                         let prom = [];
                         this.instanceList.forEach((item) => {
-                            let instance = item.instance;
+                            let instance             = item.instance;
                             instance.style.transform = `translateX(0px) translateY(0px)`;
                         });
                         setTimeout(()=> {
@@ -120,22 +122,24 @@ class App extends Component {
     }
 
     updatePositionElements() {
+        let newInstanceList = new Map();
         this.instanceList.forEach((value, key)=> {
-            debugger;
             let {instance, position} = value;
             position = instance.getBoundingClientRect(); //update position
+            newInstanceList.set(key, {instance, position});
         });
+        this.instanceList = newInstanceList;
     }
 
     animateItems(items, newInstanceList) {
-        let instanceListAfter = newInstanceList;
+        let instanceListAfter  = newInstanceList;
         let instanceListBefore = this.instanceList;
 
         let distances = items
             .map((item)=> {
                 let oldPosition = instanceListBefore.get(item).position;
                 let newPosition = instanceListAfter.get(item).position;
-                let distance = this.getDistance(newPosition, oldPosition);
+                let distance    = this.getDistance(newPosition, oldPosition);
                 return {
                     item,
                     distance,
@@ -194,7 +198,7 @@ class App extends Component {
     }
 }
 
-App.propTypes = {};
+App.propTypes    = {};
 App.defaultProps = {};
 
 export default App;

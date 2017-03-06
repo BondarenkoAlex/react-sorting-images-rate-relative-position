@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "watch": "webpack --watch",
-    "serve": "webpack-dev-server --inline --hot --port 8082"
+    "serve": "webpack-dev-server --inline --open --hot --port 8082"
   },
   "author": "",
   "license": "",
