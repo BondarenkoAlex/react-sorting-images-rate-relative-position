@@ -16,10 +16,8 @@ module.exports = {
     },
     output : {
         path      : path.resolve(__dirname, './dist'),
-        publicPath: '/react-sorting-images-rate-relative-position/', //   /js/app.js //интернет путь к нашей сборкое, возможен вариант с http:\\... в конце слеш обязателен
+        publicPath: '/react-sorting-images-rate-relative-position/', 
         filename  : "[name].js",
-        //library: "[name]" //модуль, который мы собираем поместится в эту переменную, чтобы можно было использовать его где-то еще
-        //chunks: ["./home", "./about"] //только из этих модулей выносить общую часть
     },
     devServer: {
         contentBase: './dist',
@@ -62,17 +60,11 @@ module.exports = {
                 to: path.resolve(__dirname, './dist/[name].[ext]' )
             }
         ], {
-            // By default, we only copy modified files during
-            // a watch or webpack-dev-server build. Setting this
-            // to `true` copies all files.
             copyUnmodified: false
         }),
         new ExtractTextPlugin('styles.css', {
             allChunks: true
         }),
-        /*new CleanWebpackPlugin(['dist'], {
-            root: path.resolve(__dirname)
-        })*/
     ]
 
 };
